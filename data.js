@@ -1,21 +1,21 @@
 
+/* GAMBAR — SATU tempat untuk semua logo & foto. Ganti = timpa berkas di img/ (nama sama) atau ubah path di sini.
+   Kosongkan ('') untuk menyembunyikan. Bila gagal dimuat, otomatis kembali ke ikon/inisial. */
 window.GAMBAR = {
   logo: 'img/logo.svg',                 // header + kop surat (persegi, mis. 256×256)
-  hero: 'img/hero-lingkungan.jpg',       // foto lingkungan di beranda (1600×1000). Kosong = ilustrasi bawaan
+  hero: '',                             // foto lingkungan di beranda (1600×1000). Contoh: 'img/hero-lingkungan.svg'. Kosong = ilustrasi bawaan
   pengurus: ['img/pengurus-1.svg', 'img/pengurus-2.svg', 'img/pengurus-3.svg', 'img/pengurus-4.svg'], // urut sesuai daftar pengurus (1:1, 400×400)
   galeri: [                             // galeri kegiatan (4:3, 800×600)
-    { src: 'img/galeri-1.svg', ket: 'Kerja bakti pembersihan saluran air & selokan lingkungan warga sebelum musim hujan', judul: 'Kerja Bakti Saluran Air & Selokan', tgl: '2026-11-15', kategori: 'Lingkungan' },
-    { src: 'img/galeri-2.svg', ket: 'Ronda malam terpadu bersama warga dan sie keamanan untuk ketertiban lingkungan', judul: 'Ronda Malam & Patroli Kamtibmas', tgl: '2026-11-08', kategori: 'Keamanan' },
-    { src: 'img/galeri-3.svg', ket: 'Kemeriahan aneka perlombaan anak dan warga dalam rangka HUT Republik Indonesia', judul: 'Semarak Lomba 17 Agustus', tgl: '2026-08-17', kategori: 'Sosial' },
-    { src: 'img/galeri-4.svg', ket: 'Pemeriksaan rutin kesehatan ibu, balita, dan lansia gratis di balai warga', judul: 'Pelayanan Posyandu Balita & Lansia', tgl: '2026-10-22', kategori: 'Kesehatan' },
-    { src: 'img/galeri-1.svg', ket: 'Penanaman pohon peneduh jalan utama serta tanaman obat keluarga warga RT', judul: 'Gerakan Penghijauan Lingkungan RT', tgl: '2026-06-10', kategori: 'Lingkungan' },
-    { src: 'img/galeri-2.svg', ket: 'Simulasi penggunaan APAR dan kesiapsiagaan menghadapi bahaya kebakaran', judul: 'Pelatihan Tanggap Darurat Kebakaran', tgl: '2026-05-14', kategori: 'Keamanan' },
-    { src: 'img/galeri-3.svg', ket: 'Silaturahmi dan halal bihalal warga seusai Hari Raya Idul Fitri', judul: 'Halal Bihalal & Silaturahmi Warga', tgl: '2026-04-12', kategori: 'Sosial' },
-    { src: 'img/galeri-4.svg', ket: 'Pemeriksaan tensi, gula darah, dan kolesterol gratis bekerja sama dengan puskesmas', judul: 'Cek Kesehatan Gratis Warga', tgl: '2026-03-20', kategori: 'Kesehatan' }
+    { src: 'img/galeri-1.svg', ket: 'Kerja bakti selokan' },
+    { src: 'img/galeri-2.svg', ket: 'Ronda malam' },
+    { src: 'img/galeri-3.svg', ket: 'Lomba 17 Agustus' },
+    { src: 'img/galeri-4.svg', ket: 'Posyandu balita' }
   ]
 };
 
-
+/* Data contoh RT 05 / RW 02 Kelurahan Contoh.
+   Semua nama, NIK, No. KK, dan nomor HP di sini FIKTIF. Dibuat relatif ke bulan berjalan
+   supaya iuran & kas selalu terlihat "hidup" saat dicoba. */
 window.buatDataContoh = function () {
   var kini = new Date();
   function bk(offset) { var d = new Date(kini.getFullYear(), kini.getMonth() + offset, 1); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); }
@@ -25,22 +25,22 @@ window.buatDataContoh = function () {
   function acak() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
 
   var keluarga = [
-    ['Budi Santoso', 'L', 'Blok A No. 1', 'tetap', [['Siti Aminah', 'P', 'Istri'], ['Rizky Santoso', 'L', 'Anak'], ['Nabila Santoso', 'P', 'Anak']]],
-    ['Agus Pratama', 'L', 'Blok A No. 3', 'tetap', [['Dewi Lestari', 'P', 'Istri'], ['Dimas Pratama', 'L', 'Anak']]],
-    ['Rahmat Hidayat', 'L', 'Blok A No. 4', 'tetap', [['Nur Aini', 'P', 'Istri'], ['Fikri Hidayat', 'L', 'Anak'], ['Zahra Hidayat', 'P', 'Anak'], ['Hj. Maemunah', 'P', 'Orang Tua']]],
-    ['Hendra Wijaya', 'L', 'Blok A No. 7', 'kontrak', [['Rina Marlina', 'P', 'Istri']]],
-    ['Joko Susilo', 'L', 'Blok B No. 2', 'tetap', [['Yuni Kartika', 'P', 'Istri'], ['Bagus Susilo', 'L', 'Anak'], ['Putri Susilo', 'P', 'Anak']]],
-    ['Lilis Suryani', 'P', 'Blok B No. 5', 'tetap', [['Fajar Nugroho', 'L', 'Anak']]],
-    ['Dedi Kurniawan', 'L', 'Blok B No. 6', 'kontrak', [['Ani Rahayu', 'P', 'Istri'], ['Kevin Kurniawan', 'L', 'Anak']]],
-    ['Wahyu Saputro', 'L', 'Blok B No. 9', 'tetap', [['Indah Permata', 'P', 'Istri'], ['Aditya Saputro', 'L', 'Anak'], ['Salsa Saputro', 'P', 'Anak']]],
-    ['Taufik Ismail', 'L', 'Blok C No. 1', 'tetap', [['Wulan Sari', 'P', 'Istri']]],
-    ['Ratna Dewi', 'P', 'Blok C No. 3', 'kontrak', []],
-    ['Eko Prasetyo', 'L', 'Blok C No. 4', 'tetap', [['Maya Anggraini', 'P', 'Istri'], ['Raka Prasetyo', 'L', 'Anak'], ['Kirana Prasetyo', 'P', 'Anak']]],
-    ['Slamet Riyadi', 'L', 'Blok C No. 8', 'tetap', [['Sumiati', 'P', 'Istri'], ['Andi Riyadi', 'L', 'Anak']]],
-    ['Irfan Maulana', 'L', 'Blok D No. 2', 'kontrak', [['Tiara Ramadhani', 'P', 'Istri'], ['Alif Maulana', 'L', 'Anak']]],
-    ['Bambang Sutrisno', 'L', 'Blok D No. 5', 'tetap', [['Endang Wahyuni', 'P', 'Istri'], ['Galih Sutrisno', 'L', 'Anak'], ['Laras Sutrisno', 'P', 'Anak']]],
-    ['Yusuf Hakim', 'L', 'Blok D No. 6', 'tetap', [['Fitri Handayani', 'P', 'Istri']]],
-    ['Sri Mulyani', 'P', 'Blok D No. 9', 'tetap', [['Bayu Firmansyah', 'L', 'Anak'], ['Citra Firmansyah', 'P', 'Anak']]]
+    ['Uzumaki Ichigo', 'L', 'Blok A No. 1', 'tetap', [['Hyuga Rukia', 'P', 'Istri'], ['Uzumaki Luffy', 'L', 'Anak'], ['Uzumaki Nezuko', 'P', 'Anak']]],
+    ['Monkey D. Yuno', 'L', 'Blok A No. 3', 'tetap', [['Nico Orihime', 'P', 'Istri'], ['Monkey D. Tanjiro', 'L', 'Anak']]],
+    ['Uchiha Levi', 'L', 'Blok A No. 4', 'tetap', [['Haruno Mikasa', 'P', 'Istri'], ['Uchiha Asta', 'L', 'Anak'], ['Uchiha Shinobu', 'P', 'Anak'], ['Tsunade Boa', 'P', 'Orang Tua']]],
+    ['Roronoa Kenpachi', 'L', 'Blok A No. 7', 'kontrak', [['Nami Historia', 'P', 'Istri']]],
+    ['Kurosaki Eren', 'L', 'Blok B No. 2', 'tetap', [['Inoue Noelle', 'P', 'Istri'], ['Kurosaki Zenitsu', 'L', 'Anak'], ['Kurosaki Mitsuri', 'P', 'Anak']]],
+    ['Kochou Hinata', 'P', 'Blok B No. 5', 'tetap', [['Kochou Inosuke', 'L', 'Anak']]],
+    ['Kamado Byakuya', 'L', 'Blok B No. 6', 'kontrak', [['Tsuyuri Sakura', 'P', 'Istri'], ['Kamado Boruto', 'L', 'Anak']]],
+    ['Hatake Sanji', 'L', 'Blok B No. 9', 'tetap', [['Yamanaka Robin', 'P', 'Istri'], ['Hatake Armin', 'L', 'Anak'], ['Hatake Kanae', 'P', 'Anak']]],
+    ['Tomioka Erwin', 'L', 'Blok C No. 1', 'tetap', [['Ackerman Kanao', 'P', 'Istri']]],
+    ['Vinsmoke Sasha', 'P', 'Blok C No. 3', 'kontrak', []],
+    ['Rengoku Shikamaru', 'L', 'Blok C No. 4', 'tetap', [['Temari Yoruichi', 'P', 'Istri'], ['Rengoku Chopper', 'L', 'Anak'], ['Rengoku Mimosa', 'P', 'Anak']]],
+    ['Abarai Law', 'L', 'Blok C No. 8', 'tetap', [['Hange Rangiku', 'P', 'Istri'], ['Abarai Muichiro', 'L', 'Anak']]],
+    ['Agatsuma Gaara', 'L', 'Blok D No. 2', 'kontrak', [['Sabaku Annie', 'P', 'Istri'], ['Agatsuma Ace', 'L', 'Anak']]],
+    ['Hitsugaya Kakashi', 'L', 'Blok D No. 5', 'tetap', [['Kuchiki Hancock', 'P', 'Istri'], ['Hitsugaya Tengen', 'L', 'Anak'], ['Hitsugaya Vanessa', 'P', 'Anak']]],
+    ['Namikaze Zoro', 'L', 'Blok D No. 6', 'tetap', [['Uzumaki Kushina', 'P', 'Istri']]],
+    ['Yeager Tsunade', 'P', 'Blok D No. 9', 'tetap', [['Yeager Sabo', 'L', 'Anak'], ['Yeager Vivi', 'P', 'Anak']]]
   ];
   var kerja = ['Karyawan Swasta', 'Wiraswasta', 'PNS', 'Guru', 'Pedagang', 'Ojek Online', 'Buruh Harian'];
   var tempat = ['Bandung', 'Jakarta', 'Garut', 'Cimahi', 'Sumedang', 'Tasikmalaya', 'Bogor'];
@@ -87,7 +87,7 @@ window.buatDataContoh = function () {
   kas.push({ id: 'ks' + (n++), tgl: tgl(-5, 1), jenis: 'masuk', kategori: 'Saldo awal', ket: 'Saldo kas dari pengurus lama', jumlah: 1850000 });
   kas.push({ id: 'ks' + (n++), tgl: tgl(-3, 18), jenis: 'masuk', kategori: 'Donasi', ket: 'Sumbangan warga untuk lampu jalan', jumlah: 500000 });
   kas.push({ id: 'ks' + (n++), tgl: tgl(-3, 20), jenis: 'keluar', kategori: 'Perbaikan', ket: 'Ganti 4 lampu jalan LED Blok B & C', jumlah: 620000 });
-  kas.push({ id: 'ks' + (n++), tgl: tgl(-2, 8), jenis: 'keluar', kategori: 'Sosial', ket: 'Santunan duka keluarga Bpk. Slamet', jumlah: 300000 });
+  kas.push({ id: 'ks' + (n++), tgl: tgl(-2, 8), jenis: 'keluar', kategori: 'Sosial', ket: 'Santunan duka keluarga Bpk. Abarai Law', jumlah: 300000 });
   kas.push({ id: 'ks' + (n++), tgl: tgl(-1, 14), jenis: 'keluar', kategori: 'Kegiatan', ket: 'Konsumsi kerja bakti selokan', jumlah: 275000 });
 
   var info = [
@@ -95,28 +95,28 @@ window.buatDataContoh = function () {
     { id: 'in2', jenis: 'agenda', judul: 'Posyandu balita & lansia', isi: 'Penimbangan, imunisasi, dan cek tensi gratis. Bawa buku KIA.', tgl: depan(6), jam: '08:00', tempat: 'Balai warga RW 02' },
     { id: 'in3', jenis: 'agenda', judul: 'Rapat pengurus & perwakilan warga', isi: 'Bahas rencana pengecatan gapura dan laporan kas triwulan.', tgl: depan(10), jam: '19:30', tempat: 'Rumah Ketua RT, Blok A No. 1' },
     { id: 'in4', jenis: 'pengumuman', judul: 'Jadwal ronda malam diperbarui', isi: 'Jadwal ronda bulan ini sudah ditempel di pos ronda. Yang berhalangan harap tukar jadwal dengan tetangga dan lapor ke Sie Keamanan.', tgl: tgl(0, 1) },
-    { id: 'in5', jenis: 'agenda', judul: 'Pengajian rutin ibu-ibu', isi: 'Pengajian bulanan bergiliran. Tuan rumah: Ibu Dewi, Blok A No. 3.', tgl: depan(13), jam: '16:00', tempat: 'Blok A No. 3' },
+    { id: 'in5', jenis: 'agenda', judul: 'Pengajian rutin ibu-ibu', isi: 'Pengajian bulanan bergiliran. Tuan rumah: Ibu Nico Orihime, Blok A No. 3.', tgl: depan(13), jam: '16:00', tempat: 'Blok A No. 3' },
     { id: 'in6', jenis: 'pengumuman', judul: 'Iuran bisa via transfer', isi: 'Iuran bulanan Rp25.000 bisa dibayar tunai ke Bendahara atau transfer. Kirim bukti ke WA Bendahara.', tgl: tgl(-1, 25) }
   ];
 
   return {
     versi: 1,
     pengaturan: {
-      rt: '006', rw: '002', kelurahan: 'Tulungrejo', kecamatan: 'Pare', kota: 'Kabupaten Kediri', provinsi: 'Jawa Timur',
-      alamat: 'Jalan Nusa Indah, Desa Tulungrejo, Kec. Pare, Kabupaten Kediri 64212',
+      rt: '05', rw: '02', kelurahan: 'Contoh', kecamatan: 'Sukamaju', kota: 'Kota Bandung', provinsi: 'Jawa Barat',
+      alamat: 'Jl. Melati Raya, Kel. Contoh, Kec. Sukamaju, Kota Bandung 40123',
       iuran: nominal, iuranMulai: bk(-5),
       caraBayar: 'Tunai ke Bendahara atau transfer ke BRI 0000-01-000000-00-0 a.n. Kas RT 05 (contoh)',
       pin: '1234'
     },
     pengurus: [
-      { jabatan: 'Ketua RT', nama: 'Budi Santoso', wa: '6281200001100' },
-      { jabatan: 'Sekretaris', nama: 'Dewi Lestari', wa: '6281200001107' },
-      { jabatan: 'Bendahara', nama: 'Yuni Kartika', wa: '6281200001128' },
-      { jabatan: 'Sie Keamanan', nama: 'Eko Prasetyo', wa: '6281200001170' }
+      { jabatan: 'Ketua RT', nama: 'Uzumaki Ichigo', wa: '6281200001100' },
+      { jabatan: 'Sekretaris', nama: 'Nico Orihime', wa: '6281200001107' },
+      { jabatan: 'Bendahara', nama: 'Inoue Noelle', wa: '6281200001128' },
+      { jabatan: 'Sie Keamanan', nama: 'Rengoku Shikamaru', wa: '6281200001170' }
     ],
     kk: kk, iuran: iuran, kas: kas, info: info,
     surat: [
-      { id: 'sr1', no: '001/RT05/RW02/' + ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][new Date(tgl(-1, 9)).getMonth()] + '/' + tgl(-1, 9).slice(0, 4), tgl: tgl(-1, 9), nama: kk[1].anggota[1].nama, nik: kk[1].anggota[1].nik, jk: 'P', tempatLahir: kk[1].anggota[1].tempatLahir, tglLahir: kk[1].anggota[1].tglLahir, agama: 'Islam', pekerjaan: kk[1].anggota[1].pekerjaan, kawin: 'Kawin', alamat: kk[1].alamat, keperluan: 'Pengurusan SKCK', ket: 'Untuk melamar pekerjaan.' }
+      { id: 'sr1', no: '001/RT05/RW02/' + ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'][new Date(tgl(-1, 9)).getMonth()] + '/' + tgl(-1, 9).slice(0, 4), tgl: tgl(-1, 9), nama: kk[1].anggota[1].nama, nik: kk[1].anggota[1].nik, jk: 'P', tempatLahir: kk[1].anggota[1].tempatLahir, tglLahir: kk[1].anggota[1].tglLahir, agama: 'Islam', pekerjaan: kk[1].anggota[1].pekerjaan, kawin: 'Kawin', alamat: kk[1].alamat, keperluan: 'Pengurusan SKCK', ket: 'Untuk melamar pekerjaan.' }
     ],
     nomorSurat: { tahun: Number(tgl(-1, 9).slice(0, 4)), urut: 1 }
   };
